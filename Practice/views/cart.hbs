@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .products {
+            list-style-type: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .products li {
+            margin-bottom: 5px;
+        }
+
+        .products button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .products button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .products button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+{{> navbar}}
+
+<body>
+    <h1>Cart</h1>
+    {{#each products}}
+    <ul class="products">
+        <li>{{this.product_category}}</li>
+        <li>{{this.product_name}}</li>
+        <li>{{this.price}}</li>
+        <button><a href="/delete/{{this.productId}}">Delete</a></button>
+        <button><a href="/update/{{this.productId}}">Update</a></button>
+    </ul>
+    {{/each}}
+</body>
+
+</html>
